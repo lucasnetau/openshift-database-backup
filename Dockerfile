@@ -13,7 +13,7 @@ LABEL io.k8s.description="Platform for backup of databases" \
 USER root
 
 RUN yum install -y centos-release-scl && \
-    INSTALL_PKGS="perl516 perl516-perl-Digest-SHA perl516-perl-Digest-MD5 rh-mariadb100 rh-mariadb101 rh-postgresql95-postgresql" && \
+    INSTALL_PKGS="perl516 perl516-perl-Digest-SHA perl516-perl-Digest-MD5 rh-mariadb101 rh-postgresql95-postgresql" && \
     yum install -y --setopt=tsflags=nodocs  $INSTALL_PKGS && \
     rpm -V $INSTALL_PKGS && \
     yum clean all && \
