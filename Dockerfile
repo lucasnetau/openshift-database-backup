@@ -8,9 +8,8 @@ ENV PERL_VERSION=5.16 \
     PATH=$PATH:/opt/rh/perl516/root/usr/local/bin
 
 LABEL io.k8s.description="Platform for backup of databases" \
-      io.k8s.display-name="Apache 2.4 with PHP + backup tools" \
+      io.k8s.display-name="Apache 2.4 with PHP + backup tools"
 
-# TODO: Cleanup cpanp cache after cpanminus is installed?
 RUN yum install -y centos-release-scl && \
     INSTALL_PKGS="perl516 perl516-perl-Digest-SHA rh-mariadb100 rh-mariadb101 rh-postgresql95-postgresql" && \
     yum install -y --setopt=tsflags=nodocs  $INSTALL_PKGS && \
