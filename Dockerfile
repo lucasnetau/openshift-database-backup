@@ -17,8 +17,10 @@ RUN yum install -y centos-release-scl && \
     yum install -y --setopt=tsflags=nodocs  $INSTALL_PKGS && \
     rpm -V $INSTALL_PKGS && \
     yum clean all && \
-    curl -L -v -k "https://raw.githubusercontent.com/timkay/aws/master/aws" -o /tmp/aws && \
+    curl -L -v "https://raw.githubusercontent.com/timkay/aws/master/aws" -o /tmp/aws && \
+    sed -i 's%/usr/bin/perl%/usr/bin/env perl%' /tmp/aws && \
     scl enable perl516 -- perl /tmp/aws --install && \
+    scl enable perl516 -- perl /usr/bin/aws --link && \
     rm /tmp/aws
 
 # Each language image can have 'contrib' a directory with extra files needed to
