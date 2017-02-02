@@ -10,6 +10,8 @@ ENV PERL_VERSION=5.16 \
 LABEL io.k8s.description="Platform for backup of databases" \
       io.k8s.display-name="Apache 2.4 with PHP + backup tools"
 
+USER root
+
 RUN yum install -y centos-release-scl && \
     INSTALL_PKGS="perl516 perl516-perl-Digest-SHA rh-mariadb100 rh-mariadb101 rh-postgresql95-postgresql" && \
     yum install -y --setopt=tsflags=nodocs  $INSTALL_PKGS && \
