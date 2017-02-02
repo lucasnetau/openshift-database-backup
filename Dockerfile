@@ -28,3 +28,5 @@ RUN yum install -y centos-release-scl && \
 COPY ./contrib/ /opt/app-root
 
 USER 1001
+
+CMD $STI_SCRIPTS_PATH/run
