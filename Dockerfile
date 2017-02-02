@@ -20,7 +20,7 @@ RUN yum install -y centos-release-scl && \
     curl -L -v "https://raw.githubusercontent.com/timkay/aws/master/aws" -o /tmp/aws && \
     sed -i 's%/usr/bin/perl%/usr/bin/env perl%' /tmp/aws && \
     scl enable perl516 -- perl /tmp/aws --install && \
-    scl enable perl516 -- perl /usr/bin/aws --link && \
+    $(cd /usr/bin/ && scl enable perl516 -- perl /usr/bin/aws --link) && \
     rm /tmp/aws
 
 # Each language image can have 'contrib' a directory with extra files needed to
